@@ -67,7 +67,7 @@ import SafariServices
             var vc: SFSafariViewController
             if #available(iOS 11.0, *) {
                 let config: SFSafariViewController.Configuration = SFSafariViewController.Configuration()
-                config.entersReaderIfAvailable = true
+                config.entersReaderIfAvailable = false
                 vc = SFSafariViewController(url: url, configuration: config)
             } else {
                 vc = SFSafariViewController(url: url)
