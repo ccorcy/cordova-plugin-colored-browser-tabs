@@ -2,15 +2,21 @@
 const MODULE = "ColoredBrowserTabs";
 
 module.exports = {
-  openTab: function(url, color, successCallback, errorCallback) {
+  openTab: function(
+    url,
+    color,
+    controlColor = null,
+    successCallback,
+    errorCallback
+  ) {
     if (url) {
       if (color) {
         cordova.exec(successCallback, errorCallback, MODULE, "openTab", [
-          { link: url, tabColor: color }
+          { link: url, tabColor: color, controlColor: controlColor }
         ]);
       } else {
         cordova.exec(successCallback, errorCallback, MODULE, "openTab", [
-          { link: url }
+          { link: url, controlColor: controlColor }
         ]);
       }
     }
@@ -20,17 +26,18 @@ module.exports = {
     url,
     anim,
     color,
+    controlColor = null,
     successCallback,
     errorCallback
   ) {
     if (url) {
       if (color) {
         cordova.exec(successCallback, errorCallback, MODULE, "openTab", [
-          { link: url, animation: anim, tabColor: color }
+          { link: url, animation: anim, tabColor: color, controlColor }
         ]);
       } else {
         cordova.exec(successCallback, errorCallback, MODULE, "openTab", [
-          { link: url, animation: anim }
+          { link: url, animation: anim, controlColor }
         ]);
       }
     }
