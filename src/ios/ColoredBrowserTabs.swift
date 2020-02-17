@@ -77,7 +77,10 @@ import SafariServices
 
             if #available(iOS 10.0, *) {
                 vc.preferredBarTintColor = createUIColor(color)
-                vc.preferredControlTintColor = createUIColor(controlColor);
+                vc.preferredControlTintColor = createUIColor(controlColor)
+                if ((vc.preferredBarTintColor == UIColor.white || color?.lowercased() == "#ffffff") && vc.preferredControlTintColor == UIColor.white) {
+                    vc.preferredControlTintColor = UIColor.systemBlue
+                }
             }
             return vc
         }
